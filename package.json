@@ -15,11 +15,11 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/KingAndrew1024/messages-core-module.git"
+    "url": "git+https://github.com/KingAndrew1024/gmb-messages-core-module.git"
   },
   "keywords": [
     "ionic",
-    "messages",
+    "gmb messages",
     "angular9",
     "virket"
   ],
