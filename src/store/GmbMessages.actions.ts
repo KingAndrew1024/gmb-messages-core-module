@@ -5,18 +5,18 @@ import { GMB_MESSAGE_TYPE } from '../core/contracts/IGmbMessages.repository'
 
 
 export enum GmbMessagesActionTypes {
-    GetMessagesBegin = "[Messages] Get Messages begin",
-    GetMessagesSuccess = "[Messages] Get Messages success",
-    GetMessagesFail = "[Messages] Get Messages failure",
+    GetMessagesBegin = "[GmbMessages] Get Messages begin",
+    GetMessagesSuccess = "[GmbMessages] Get Messages success",
+    GetMessagesFail = "[GmbMessages] Get Messages failure",
 
-    SetMessageAsReadBegin = "[Messages] Set Messages as Read begin",
-    SetMessageAsReadSuccess = "[Messages] Set Messages as Read success",
-    SetMessageAsReadFail = "[Messages] Set Messages as Read failure",
+    SetMessageAsReadBegin = "[GmbMessages] Set Messages as Read begin",
+    SetMessageAsReadSuccess = "[GmbMessages] Set Messages as Read success",
+    SetMessageAsReadFail = "[GmbMessages] Set Messages as Read failure",
 
-    FilterMessagesBegin = "[Messages] Filter message begin",
-    FilterMessagesSuccess = "[Messages] Filter message success",
+    FilterMessagesBegin = "[GmbMessages] Filter message begin",
+    FilterMessagesSuccess = "[GmbMessages] Filter message success",
 
-    SelectMessage = "[Messages] Select message",
+    SelectMessage = "[GmbMessages] Select message",
 }
 
 // GET Messages from remote API

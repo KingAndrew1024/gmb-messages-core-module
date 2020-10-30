@@ -2,7 +2,7 @@ import { Observable } from 'rxjs';
 
 import { IHttpBasicResponse } from './IHttpBasicResponse';
 
-export interface IMessagesRepository {
+export interface IGmbMessagesRepository {
     getMessages(): Observable<IHttpBasicResponse<IGmbMessagesApiResponse>>;
     setMessageAsRead(id: number): Observable<IHttpBasicResponse<IGmbMessageApiProps>>;
 }

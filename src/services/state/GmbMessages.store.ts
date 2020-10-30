@@ -8,8 +8,8 @@ import { GMB_MESSAGE_TYPE } from '../../core/contracts/IGmbMessages.repository';
 
 
 @Injectable()
-export class MessagesStore {
-    constructor(private store: Store<fromReducer.MessagesState>) { }
+export class GmbMessagesStore {
+    constructor(private store: Store<fromReducer.GmbMessagesState>) { }
 
     get Loading$() { return this.store.select(fromSelector.getIsLoading) }
 

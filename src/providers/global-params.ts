@@ -1,6 +1,6 @@
 
 export class AppSettingsService {
-    constructor(settings: MessagesModuleOptionsInterface) {
+    constructor(settings: GmbMessagesModuleOptionsInterface) {
         this.setApiUrl(settings.apiUrl);
         this.setInstanceName(settings.instanceName);
     }
@@ -14,7 +14,7 @@ export class AppSettingsService {
     getInstanceName() { return this.instanceName };
 }
 
-export interface MessagesModuleOptionsInterface{
+export interface GmbMessagesModuleOptionsInterface{
     apiUrl: string
     instanceName: string
   };

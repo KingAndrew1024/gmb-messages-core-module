@@ -1,9 +1,9 @@
 
-export interface IMessagesStateError {
+export interface IGmbMessagesStateError {
     after: 'GET' | 'SET_READ' | 'UNKNOWN'
     error: any
 }
 
-export interface IMessagesStateSuccess {
+export interface IGmbMessagesStateSuccess {
     after: 'GET' | 'SET_READ' | 'UNKNOWN'
 }

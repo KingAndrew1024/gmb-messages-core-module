@@ -1,12 +1,12 @@
 import { createSelector, createFeatureSelector } from '@ngrx/store';
 import * as fromReducer from './GmbMessages.reducer';
 
-export const getMessagesState = createFeatureSelector<fromReducer.MessagesState>('messages');
+export const getMessagesState = createFeatureSelector<fromReducer.GmbMessagesState>('gmbMessages');
 
-export const _getPageData = (state: fromReducer.MessagesState) => state.pageData;
-export const _getIsLoading = (state: fromReducer.MessagesState) => state.isLoading;
-export const _getMessages = (state: fromReducer.MessagesState) => state.pageData.messages;
-export const _getFilteredItems = (state: fromReducer.MessagesState) => state.filteredItems;
+export const _getPageData = (state: fromReducer.GmbMessagesState) => state.pageData;
+export const _getIsLoading = (state: fromReducer.GmbMessagesState) => state.isLoading;
+export const _getMessages = (state: fromReducer.GmbMessagesState) => state.pageData.messages;
+export const _getFilteredItems = (state: fromReducer.GmbMessagesState) => state.filteredItems;
 
 export const getMessagesPageState = createSelector(
     getMessagesState,

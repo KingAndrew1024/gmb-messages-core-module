@@ -3,14 +3,14 @@ import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 
 import { IGmbMessagesService } from '../core/contracts/IGmbMessages.service';
-import { MessagesRepository } from '../repositories/GmbMessages.repository';
+import { GmbMessagesRepository } from '../repositories/GmbMessages.repository';
 import { GmbMessagesPageModel, GmbMessageModel } from '../core/models/GmbMessage.model';
 
 
 
 @Injectable()
 export class GmbMessagesService implements IGmbMessagesService {
-    constructor(private repository: MessagesRepository,
+    constructor(private repository: GmbMessagesRepository,
         /*private errorHandler: RepositoryErrorHandler*/) { }
 
     getMessages(sorting?: 'ASC' | 'DESC'): Observable<GmbMessagesPageModel> {

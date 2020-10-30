@@ -3,18 +3,18 @@ import { StoreModule } from '@ngrx/store';
 import { EffectsModule } from '@ngrx/effects';
 import { HttpClientModule } from '@angular/common/http';
 
-import { messagesReducer } from './store/GmbMessages.reducer';
-import { MessagesEffects } from './store/GmbMessages.effects';
-import { MessagesModuleOptionsInterface, AppSettingsService } from './providers/global-params';
+import { gmbMessagesReducer } from './store/GmbMessages.reducer';
+import { GmbMessagesEffects } from './store/GmbMessages.effects';
+import { GmbMessagesModuleOptionsInterface, AppSettingsService } from './providers/global-params';
 import { GMB_MESSAGES_SERVICE } from './services/identifiers';
 import { GmbMessagesService } from './services/GmbMessages.service';
-import { MessagesRepository } from './repositories/GmbMessages.repository';
-import { MessagesStore } from './services/state/GmbMessages.store';
+import { GmbMessagesRepository } from './repositories/GmbMessages.repository';
+import { GmbMessagesStore } from './services/state/GmbMessages.store';
 
 
 export const AppSettingsObject = new InjectionToken('AppSettingsObject');
 
-export function createAppSettingsService(settings: MessagesModuleOptionsInterface) {
+export function createAppSettingsService(settings: GmbMessagesModuleOptionsInterface) {
   return new AppSettingsService(settings);
 }
 
@@ -22,8 +22,8 @@ export function createAppSettingsService(settings: MessagesModuleOptionsInterfac
 @NgModule({
   imports: [
     HttpClientModule,
-    StoreModule.forFeature('messages', messagesReducer),
-    EffectsModule.forFeature([MessagesEffects]),
+    StoreModule.forFeature('gmbMessages', gmbMessagesReducer),
+    EffectsModule.forFeature([GmbMessagesEffects]),
   ],
   providers:[
     
@@ -37,10 +37,10 @@ export function createAppSettingsService(settings: MessagesModuleOptionsInterfac
     //MyComponent
   ]
 })
-export class MessagesCoreModule {
-  static forRoot(config: MessagesModuleOptionsInterface): ModuleWithProviders<MessagesCoreModule> {
+export class GmbMessagesCoreModule {
+  static forRoot(config: GmbMessagesModuleOptionsInterface): ModuleWithProviders<GmbMessagesCoreModule> {
     return {
-      ngModule: MessagesCoreModule,
+      ngModule: GmbMessagesCoreModule,
       providers: [ 
         { provide: AppSettingsObject, useValue: config },
         {
@@ -49,8 +49,8 @@ export class MessagesCoreModule {
           deps: [AppSettingsObject]
         },
         { provide: GMB_MESSAGES_SERVICE, useClass: GmbMessagesService },
-        MessagesRepository,
-        MessagesStore
+        GmbMessagesRepository,
+        GmbMessagesStore
       ]
     };
   }

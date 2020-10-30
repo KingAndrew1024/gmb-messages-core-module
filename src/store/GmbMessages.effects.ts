@@ -11,7 +11,7 @@ import { IGmbMessagesService } from '../core/contracts/IGmbMessages.service';
 
 
 @Injectable()
-export class MessagesEffects {
+export class GmbMessagesEffects {
     load$ = createEffect(
         () => this.actions$.pipe(
             ofType(fromActions.GmbMessagesActionTypes.GetMessagesBegin),
@@ -65,5 +65,5 @@ export class MessagesEffects {
 }
 
  interface AppState {
-    messages: fromReducer.MessagesState,
+    messages: fromReducer.GmbMessagesState,
 }

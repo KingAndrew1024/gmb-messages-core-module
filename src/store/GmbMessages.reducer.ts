@@ -1,20 +1,20 @@
 import { createReducer, on, Action } from '@ngrx/store';
 import * as fromActions from './GmbMessages.actions';
 import { GmbMessagesPageModel, GmbMessageModel } from '../core/models/GmbMessage.model';
-import { IMessagesStateError, IMessagesStateSuccess } from '../core/contracts/IStateErrorSuccess';
+import { IGmbMessagesStateError, IGmbMessagesStateSuccess } from '../core/contracts/IStateErrorSuccess';
 
 
-export interface MessagesState {
+export interface GmbMessagesState {
     isLoading: boolean
     hasBeenFetched: boolean
     pageData: GmbMessagesPageModel
     filteredItems: GmbMessageModel[]
     selectedId: number
-    error: IMessagesStateError,
-    success: IMessagesStateSuccess
+    error: IGmbMessagesStateError,
+    success: IGmbMessagesStateSuccess
 }
 
-export const initialState: MessagesState = {
+export const initialState: GmbMessagesState = {
     isLoading: false,
     hasBeenFetched: false,
     pageData: GmbMessagesPageModel.empty(),
@@ -28,7 +28,7 @@ const reducer = createReducer(
     initialState,
 
     //On Begin Actions
-    on(fromActions.GetMessagesBeginAction, (state): MessagesState => ({
+    on(fromActions.GetMessagesBeginAction, (state): GmbMessagesState => ({
         ...state,
         error: null,
         success: null,
@@ -36,7 +36,7 @@ const reducer = createReducer(
     })),
 
     //ON Success Actions
-    on(fromActions.GetMessagesSuccessAction, (state, action): MessagesState => ({
+    on(fromActions.GetMessagesSuccessAction, (state, action): GmbMessagesState => ({
         ...state,
         isLoading: false,
         hasBeenFetched: true,
@@ -48,7 +48,7 @@ const reducer = createReducer(
         error: null,
         success: null
     })),
-    on(fromActions.SetMessageAsReadSuccessAction, (state, action): MessagesState => ({
+    on(fromActions.SetMessageAsReadSuccessAction, (state, action): GmbMessagesState => ({
         ...state,
         pageData: {
             ...state.pageData,
@@ -76,25 +76,25 @@ const reducer = createReducer(
     })),
 
     //ON Fail Actions
-    on(fromActions.GetMessagesFailAction, (state, action): MessagesState => ({
+    on(fromActions.GetMessagesFailAction, (state, action): GmbMessagesState => ({
         ...state,
         isLoading: false,
         error: { after: getErrorActionType(action.type), error: action.errors }
     })),
-    on(fromActions.SetMessageAsReadFailAction, (state, action): MessagesState => ({
+    on(fromActions.SetMessageAsReadFailAction, (state, action): GmbMessagesState => ({
         ...state,
         error: { after: getErrorActionType(action.type), error: action.errors },
     })),
 
     //FILTER
-    on(fromActions.FilterMessagesSuccessAction, (state, action): MessagesState => ({
+    on(fromActions.FilterMessagesSuccessAction, (state, action): GmbMessagesState => ({
         ...state,
         filteredItems: action.messageList,
         success: null
     })),
 
     //SELECT
-    on(fromActions.SelectMessageAction, (state, action): MessagesState => ({
+    on(fromActions.SelectMessageAction, (state, action): GmbMessagesState => ({
         ...state,
         selectedId: action.messageId,
         success: null
@@ -129,6 +129,6 @@ function getSuccessActionType(type: fromActions.GmbMessagesActionTypes) {
     return action;
 }
 
-export function messagesReducer(state: MessagesState | undefined, action: Action) {
+export function gmbMessagesReducer(state: GmbMessagesState | undefined, action: Action) {
     return reducer(state, action);
 }
